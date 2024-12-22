@@ -67,11 +67,18 @@ export const login = async (req, res) => {
         message: "Incorrect email or password",
       });
     }
+
     const isPasswordMatch = await bcrypt.compare(password, user.password);
     if (!isPasswordMatch) {
       return res.status(400).json({
         success: false,
         message: "Incorrect email or password",
+      });
+    }
+    if(user.role!==role){
+      return res.status(400).json({
+        success: false,
+        message: "Incorrect role",
       });
     }
     generateToken(res, user, `Welcome back ${user.name}`);
