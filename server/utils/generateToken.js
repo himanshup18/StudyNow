@@ -9,10 +9,10 @@ export const generateToken = (res, user, message) => {
     .status(200)
     .cookie("token", token, {
       httpOnly: true,
-      sameSite: "none",
       secure: true,
+      sameSite: "none",
       maxAge: 24 * 60 * 60 * 1000, // 1 day
-      domain: "onrender.com", 
+      domain: "studynow-scvu.onrender.com",
     })
     .json({
       success: true,

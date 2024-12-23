@@ -23,6 +23,7 @@ app.use(cookieParser());
 
 app.use(cors({
     origin:["https://studynow-frontend.onrender.com", "http://localhost:5173"],
+    methods:["GET", "POST", "PUT", "DELETE"],
     credentials:true
 }));
  
